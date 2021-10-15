@@ -4,9 +4,11 @@ public class web_Server {
     public void start_Server(){
 
         web_Scraper scraper = new web_Scraper();
-        String address = scraper.articleAddress();
+        String bleacherTitle = scraper.bleacherTitle();
+        String bleacherURL = scraper.bleacherURL();
 
-        get("/hello", (req, res) -> address);
+        get("/hello", (req, res) -> bleacherTitle);
+        get("/hello", (req, res) -> bleacherURL);
     }
 }
 
@@ -16,4 +18,3 @@ public class web_Server {
  * 2. Place data into tiles for each section with their headline and then just link to the article page
  * 3. Make website look not totally trash. Add header and styling for the tiles
  */
-

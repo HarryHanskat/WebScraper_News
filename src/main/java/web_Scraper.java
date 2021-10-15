@@ -18,24 +18,38 @@ public class web_Scraper {
     static String[] cryptoSites = {"https://cryptonews.com/","https://finance.yahoo.com/topic/crypto","https://www.coindesk.com/"};
     WebDriver driver;
 
+
     // Will trigger the opening of each site where
     public web_Scraper(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get(golfSites[0]);
+    }
+
+    public void refreshData(){
+        //TODO Implement: goes through each of the sites and collects new data
+        //This is gonna be a messy first go, can possibly implement optimizations later
+        //Just get something down on the pages first then worry about it looking pretty
+        //Can do that in another sprint
 
     }
 
-    public String articleAddress(){
-        List<WebElement> article = driver.findElements(By.xpath("//*[contains(concat(' ', @class, ' '), ' cell articleSummary ')]"));
-
-        return article.get(3).getText();
+    public String bleacherTitle(){
+        String bleacherTitle = articleInformation.getBleacherTitle(driver);
+        return bleacherTitle;
+    }
+    public String bleacherURL() {
+        String bleacherURL = articleInformation.getBleacherURL(driver);
+        return bleacherURL;
     }
 }
+
 /**
  * 1. Navigate to each site
  *  a. Needs to be headless, so it doesn't bog down the app
+ *      a1. Refresh Data method
+ *          goes through each site requested and gets the latest data
  *  b. Iterate through each subject, golf, mars, and crypto
  *
  * 2. Collect headline and url for each article
