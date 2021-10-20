@@ -10,6 +10,7 @@ public class main {
         web_Server server = new web_Server();
         server.start_Server();
 
-        driver.get("http://localhost:4567/hello");
+        //driver.get("http://localhost:4567/hello");
+        driver.close();
     }
 }

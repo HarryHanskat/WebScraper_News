@@ -4,7 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 This is the web scraper class. It's responsible for going to each site we're gathering news from
@@ -18,31 +20,100 @@ public class web_Scraper {
     static String[] cryptoSites = {"https://cryptonews.com/","https://finance.yahoo.com/topic/crypto","https://www.coindesk.com/"};
     WebDriver driver;
 
+    public String bleacherTitle = "";
+    public String bleacherURL = "";
+    public String golfNewsNetTitle = "";
+    public String golfNewsNetURL = "";
+    public String skySportsTitle = "";
+    public String skySportsURL = "";
+    public String nasaTitle = "";
+    public String nasaURL = "";
+    public String marsDailyTitle = "";
+    public String marsDailyURL = "";
+    public String spaceTitle = "";
+    public String spaceURL = "";
+
+    Map data = new HashMap();
 
     // Will trigger the opening of each site where
     public web_Scraper(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get(golfSites[0]);
     }
 
     public void refreshData(){
-        //TODO Implement: goes through each of the sites and collects new data
-        //This is gonna be a messy first go, can possibly implement optimizations later
-        //Just get something down on the pages first then worry about it looking pretty
-        //Can do that in another sprint
+        driver.get(golfSites[0]);
+        setBleacherTitle();
+        setBleacherURL();
+        driver.get(golfSites[1]);
+        setGolfNewsNetTitle();
+        setGolfNewsNetURL();
+        driver.get(golfSites[2]);
+        setSkySportsTitle();
+        setSkySportsURL();
+        driver.get(marsSites[0]);
+        setNasaTitle();
+        setNasaURL();
+        driver.get(marsSites[1]);
+        setMarsDailyTitle();
+        setMarsDailyURL();
+        driver.get(marsSites[2]);
+        setSpaceTitle();
+        setSpaceURL();
 
+        driver.close();
     }
 
-    public String bleacherTitle(){
-        String bleacherTitle = articleInformation.getBleacherTitle(driver);
+    public String setBleacherTitle(){
+        bleacherTitle = articleInformation.getBleacherTitle(driver);
         return bleacherTitle;
     }
-    public String bleacherURL() {
-        String bleacherURL = articleInformation.getBleacherURL(driver);
+    public String setBleacherURL() {
+        bleacherURL = articleInformation.getBleacherURL(driver);
         return bleacherURL;
     }
+    public String setGolfNewsNetTitle(){
+        golfNewsNetTitle = articleInformation.getGolfNewsNetTitle(driver);
+        return golfNewsNetTitle;
+    }
+    public String setGolfNewsNetURL(){
+        golfNewsNetURL = articleInformation.getGolfNewsNetURL(driver);
+        return golfNewsNetURL;
+    }
+    public String setSkySportsTitle(){
+        skySportsTitle = articleInformation.getSkySportsTitle(driver);
+        return skySportsTitle;
+    }
+    public String setSkySportsURL(){
+        skySportsURL = articleInformation.getSkySportsURL(driver);
+        return skySportsURL;
+    }
+    public String setNasaTitle(){
+        nasaTitle = articleInformation.getNasaTitle(driver);
+        return nasaTitle;
+    }
+    public String setNasaURL() {
+        nasaURL = articleInformation.getNasaURL(driver);
+        return nasaURL;
+    }
+    public String setMarsDailyTitle() {
+        marsDailyTitle = articleInformation.getMarsDailyTitle(driver);
+        return marsDailyTitle;
+    }
+    public String setMarsDailyURL() {
+        marsDailyURL = articleInformation.getMarsDailyURL(driver);
+        return marsDailyURL;
+    }
+    public String setSpaceTitle() {
+        spaceTitle = articleInformation.getSpaceTitle(driver);
+        return spaceTitle;
+    }
+    public String setSpaceURL() {
+        spaceURL = articleInformation.getSpaceURL(driver);
+        return spaceURL;
+    }
+
 }
 
 /**

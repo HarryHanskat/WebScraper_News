@@ -4,11 +4,25 @@ public class web_Server {
     public void start_Server(){
 
         web_Scraper scraper = new web_Scraper();
-        String bleacherTitle = scraper.bleacherTitle();
-        String bleacherURL = scraper.bleacherURL();
+        scraper.refreshData();
+        System.out.println(scraper.bleacherTitle);
+        System.out.println(scraper.bleacherURL);
+        System.out.println(scraper.golfNewsNetTitle);
+        System.out.println(scraper.golfNewsNetURL);
+        System.out.println(scraper.skySportsTitle);
+        System.out.println(scraper.skySportsURL);
+        System.out.println(scraper.nasaTitle);
+        System.out.println(scraper.nasaURL);
+        System.out.println(scraper.marsDailyTitle);
+        System.out.println(scraper.marsDailyURL);
+        System.out.println(scraper.spaceTitle);
+        System.out.println(scraper.spaceURL);
 
-        get("/hello", (req, res) -> bleacherTitle);
-        get("/hello", (req, res) -> bleacherURL);
+        //String bleacherTitle = scraper.bleacherTitle();
+        //String bleacherURL = scraper.bleacherURL();
+
+        //get("/hello", (req, res) -> bleacherTitle);
+        //get("/hello", (req, res) -> bleacherURL);
     }
 }
 
