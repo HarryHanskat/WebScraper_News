@@ -54,11 +54,23 @@ public class articleInformation {
     public static String getMarsDailyURL(WebDriver driver) {
         return (driver.findElement(By.xpath("/html/body/center[6]/table/tbody/tr/td[1]/span[1]/a"))).getAttribute("href").trim();
     }
-    public static String getSpaceTitle(WebDriver driver) {
-        return (driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/section/div[1]/a/figure/figcaption/span[1]"))).getAttribute("text").trim();
+    public static String getCryptoTitle(WebDriver driver) {
+        return (driver.findElement(By.xpath("/html/body/main/section[1]/div/div[1]/div/div/div[1]/div/div/div/div[2]/div/a"))).getAttribute("text").trim();
     }
-    public static String getSpaceURL(WebDriver driver) {
-        return (driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/section/div[1]/a"))).getAttribute("href").trim();
+    public static String getCryptoURL(WebDriver driver) {
+        return (driver.findElement(By.xpath("/html/body/main/section[1]/div/div[1]/div/div/div[1]/div/div/div/div[2]/div/a"))).getAttribute("href").trim();
+    }
+    public static String getYahooTitle(WebDriver driver) {
+        return (driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[3]/div[1]/div/div[3]/div/div/div/ul/li[3]/div/div/div[2]/h3/a"))).getText();
+    }
+    public static String getYahooURL(WebDriver driver) {
+        return (driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[3]/div[1]/div/div[3]/div/div/div/ul/li[3]/div/div/div[2]/h3/a"))).getAttribute("href");
+    }
+    public static String getCoinbaseTitle(WebDriver driver) {
+        return (driver.findElement(By.xpath("/html/body/div/div/main/div/section[1]/div/div/div[1]/div/div/div/div/div[1]/div/div[2]/h5/a"))).getAttribute("text");
+    }
+    public static String getCoinbaseURL(WebDriver driver) {
+        return (driver.findElement(By.xpath("/html/body/div/div/main/div/section[1]/div/div/div[1]/div/div/div/div/div[1]/div/div[2]/h5/a"))).getAttribute("href");
     }
 
 

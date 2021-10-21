@@ -15,8 +15,12 @@ public class web_Server {
         System.out.println(scraper.nasaURL);
         System.out.println(scraper.marsDailyTitle);
         System.out.println(scraper.marsDailyURL);
-        System.out.println(scraper.spaceTitle);
-        System.out.println(scraper.spaceURL);
+        System.out.println(scraper.cryptoTitle);
+        System.out.println(scraper.cryptoURL);
+        System.out.println(scraper.yahooTitle);
+        System.out.println(scraper.yahooURL);
+        System.out.println(scraper.coinbaseTitle);
+        System.out.println(scraper.coinbaseURL);
 
         //String bleacherTitle = scraper.bleacherTitle();
         //String bleacherURL = scraper.bleacherURL();

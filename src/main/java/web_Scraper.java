@@ -16,7 +16,7 @@ and returning the site info we want. Most importantly the article data needed to
 public class web_Scraper {
     // Three sites per topic that the scraper will navigate to. All held in static arrays as these shouldn't change
     static String[] golfSites = {"https://bleacherreport.com/golf","https://thegolfnewsnet.com/","https://www.skysports.com/golf"};
-    static String[] marsSites = {"https://mars.nasa.gov/news/","https://www.marsdaily.com/","https://www.space.com/"};
+    static String[] marsSites = {"https://mars.nasa.gov/news/","https://www.marsdaily.com/"};
     static String[] cryptoSites = {"https://cryptonews.com/","https://finance.yahoo.com/topic/crypto","https://www.coindesk.com/"};
     WebDriver driver;
 
@@ -30,8 +30,12 @@ public class web_Scraper {
     public String nasaURL = "";
     public String marsDailyTitle = "";
     public String marsDailyURL = "";
-    public String spaceTitle = "";
-    public String spaceURL = "";
+    public String cryptoTitle = "";
+    public String cryptoURL = "";
+    public String yahooTitle = "";
+    public String yahooURL = "";
+    public String coinbaseTitle = "";
+    public String coinbaseURL = "";
 
     Map data = new HashMap();
 
@@ -58,9 +62,15 @@ public class web_Scraper {
         driver.get(marsSites[1]);
         setMarsDailyTitle();
         setMarsDailyURL();
-        driver.get(marsSites[2]);
-        setSpaceTitle();
-        setSpaceURL();
+        driver.get(cryptoSites[0]);
+        setCryptoTitle();
+        setCryptoURL();
+        driver.get(cryptoSites[1]);
+        setYahooTitle();
+        setYahooURL();
+        driver.get(cryptoSites[2]);
+        setCoinbaseTitle();
+        setCoinbaseURL();
 
         driver.close();
     }
@@ -105,13 +115,29 @@ public class web_Scraper {
         marsDailyURL = articleInformation.getMarsDailyURL(driver);
         return marsDailyURL;
     }
-    public String setSpaceTitle() {
-        spaceTitle = articleInformation.getSpaceTitle(driver);
-        return spaceTitle;
+    public String setCryptoTitle() {
+        cryptoTitle = articleInformation.getCryptoTitle(driver);
+        return cryptoTitle;
     }
-    public String setSpaceURL() {
-        spaceURL = articleInformation.getSpaceURL(driver);
-        return spaceURL;
+    public String setCryptoURL() {
+        cryptoURL = articleInformation.getCryptoURL(driver);
+        return cryptoURL;
+    }
+    public String setYahooTitle() {
+        yahooTitle = articleInformation.getYahooTitle(driver);
+        return yahooTitle;
+    }
+    public String setYahooURL() {
+        yahooURL = articleInformation.getYahooURL(driver);
+        return yahooURL;
+    }
+    public String setCoinbaseTitle() {
+        coinbaseTitle = articleInformation.getCoinbaseTitle(driver);
+        return coinbaseTitle;
+    }
+    public String setCoinbaseURL() {
+        coinbaseURL = articleInformation.getCoinbaseURL(driver);
+        return coinbaseURL;
     }
 
 }
